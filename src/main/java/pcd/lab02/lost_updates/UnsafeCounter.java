@@ -9,10 +9,14 @@ public class UnsafeCounter {
 	}
 	
 	public void inc(){
-		cont++;
+		synchronized (this) {
+			cont++;
+		}
 	}
 	
 	public int getValue(){
-		return cont;
+		synchronized (this) {
+			return cont;
+		}
 	}
 }
